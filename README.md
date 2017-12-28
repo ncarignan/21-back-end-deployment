@@ -16,7 +16,7 @@ Deploy the application built on lab 19 using Github/Heroku/Travis CI using the p
 Link your deployed apllication to AWS using Heroku's environment variables.
 
 ## travis.yml sample
-Use the following .yml file as a starting point for your deployment. It sets up the addots required to use Bcrpyt with Travis.
+Use the following .yml file as a starting point for your deployment. It sets up the addons required to use the libraries we have been using in class.
 
 ```yml
 language: node_js
