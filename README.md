@@ -1,4 +1,4 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 21: Deployment
+![cf](https://i.imgur.com/7v5ASc8.png) Lab 21: Back-end Deployment
 ======
 
 ## Submission Instructions
