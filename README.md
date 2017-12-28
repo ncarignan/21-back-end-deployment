@@ -11,10 +11,11 @@
 
 ## Feature Tasks  
 * Deploy the application built on lab 19 using Github/Heroku/Travis CI using the process illustrated in class.
+** Use [mlab](https://elements.heroku.com/addons/mongolab) to add a MongoDB database to Heroku.
 * Link your deployed apllication to AWS using Heroku's environment variables.
 
 ## travis.yml sample
-Use the following .yml file as a starting point for your deployment. It sets up the addons required to use the libraries we have been using in class.
+Use the following .yml file as a starting point for your deployment. It sets up the addons required to use the libraries we have been using in class, and it sets up a node version supported by Heroku.
 
 ```yml
 language: node_js
