@@ -10,10 +10,8 @@
 * [Getting started with NodeJS on TravisCI](https://docs.travis-ci.com/user/languages/javascript-with-nodejs)
 
 ## Feature Tasks  
-Deploy the application built on lab 19 using Github/Heroku/Travis CI using the process illustrated in class.
-
-## Stretch Goals
-Link your deployed apllication to AWS using Heroku's environment variables.
+* Deploy the application built on lab 19 using Github/Heroku/Travis CI using the process illustrated in class.
+* Link your deployed apllication to AWS using Heroku's environment variables.
 
 ## travis.yml sample
 Use the following .yml file as a starting point for your deployment. It sets up the addons required to use the libraries we have been using in class.
