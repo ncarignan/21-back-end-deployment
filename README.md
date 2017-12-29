@@ -1,42 +1,22 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 21: Back-end Deployment
-======
+#Authentication
 
-## Submission Instructions
-* Continue from previous authorization labs.
-* Submit on canvas a question and observation, how long you spent, and a link to your deployed application.
+##auth-router
 
-## Resources
-* [Deploing NodeJS Apps on Heroku](https://devcenter.heroku.com/articles/deploying-nodejs)
-* [Getting started with NodeJS on TravisCI](https://docs.travis-ci.com/user/languages/javascript-with-nodejs)
+###POST
+the POST request takes in a username, email, and password and sends it to the server on the '/signup' route. The server then creates an account for them with those parameters and generates a token for them to continue using the site with. The email and username must be unique. The password is hashed and thus is not stored raw in our db. a method exists to verify the password on login attempts against the hashed password. a method also exists that creates tokens when the user logs in again.
 
-## Feature Tasks  
-* Deploy the application built on lab 19 using Github/Heroku/Travis CI using the process illustrated in class.
-  * Use [mlab](https://elements.heroku.com/addons/mongolab) to add a MongoDB database to Heroku.
-* Link your deployed apllication to AWS using Heroku's environment variables.
+### GET
+The GET request makes a login request to the server. if the hashed password sent matches the stored hashed password, then it creates a new token and sends it back to the user.
 
-## travis.yml sample
-Use the following .yml file as a starting point for your deployment. It sets up the addons required to use the libraries we have been using in class, and it sets up a node version supported by Heroku.
+##profileRouter
+All of the profile routes deal with publicly viewable profiles
 
-```yml
-language: node_js
-node_js:
-  - '8.4.0'
-services:
-  - mongodb
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc-4.8
-      - g++-4.8
-env:
-  - CXX=g++-4.8
-sudo: required
-before_script: npm i
-script:
-  - npm test
-```
+###POST
+the POST route passes through the bearerAuthMiddleware and receives a new profile object. if the attached token matches the account, then it creates a new profile tied to the account with a bio, avatar, first and lastname, and reference to the account it belongs to.
 
-## Documentation
-Refactor the existing README.md to reflect changes done during deployment.
+###GET
+the get request passes through the bearerAuthMiddleware and requests a specific profile referencing that profiles id. it then sends the profile back to the client..
+
+## middleware
+### BEARER HEADER
+ checks the headers, checks the token, decrypts token, checks the token against the user- promisifies the verification to persist the promisechain
