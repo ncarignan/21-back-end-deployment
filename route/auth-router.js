@@ -14,7 +14,7 @@ authRouter.post('/signup', jsonParser, (request, response, next) => {
   Account.create(request.body.username, request.body.email, request.body.password)
     .then(user => user.createToken())
     .then(token => {
-      response.json({token});
+      return response.json({token});
 
     })
     .catch(next);

@@ -40,7 +40,7 @@ describe('auth router', () => {
 
 
   describe('GET /login', () => {
-    test('GET login should get 200 if there are no errors', () =>{
+    test.only('GET login should get 200 if there are no errors', () =>{
       return accountMockFactory.create()
         .then(mock => {
           return superagent.get(`${apiUrl}/login`)

@@ -32,7 +32,7 @@ awsSDKMock.mock('S3', 'upload', (params, callback) => {
   if(params.Bucket !== process.env.AWS_BUCKET)
     return callback(new Error('__ERROR__', 'wrong bucket'));
 
-  callback(null, {Location : faker.internet.url()});
+  return callback(null, {Location : faker.internet.url()});
 });
 
 awsSDKMock.mock('S3', 'deleteObject', (params, callback) => {
@@ -42,5 +42,5 @@ awsSDKMock.mock('S3', 'deleteObject', (params, callback) => {
   if(params.Bucket !== process.env.AWS_BUCKET)
     return callback(new Error('__ERROR__', 'wrong bucket'));
 
-  callback(null, {});
+  return callback(null, {});
 });
